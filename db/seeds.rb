@@ -10,7 +10,7 @@ puts "Cleaning database..."
 Boat.destroy_all
 User.destroy_all
 
-User.create(id: 1, email: "bobvance@email.com", password: "refregirator", phone_number: "+33620304050", last_name: "Vance", first_name: "Bob")
+User.create(email: "bobvance@email.com", password: "refregirator", phone_number: "+33620304050", last_name: "Vance", first_name: "Bob")
 
 Boat.create(name: "titanic", capacity: 4000, category: "liner", price: 20_000, user_id: 1)
 Boat.create(name: "tulipe", capacity: 3, category: "floating boat", price: 10, user_id: 1)
