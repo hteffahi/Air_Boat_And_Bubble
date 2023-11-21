@@ -1,9 +1,11 @@
 <% @boats.each do |boat| %>
-  <li>
-    <%= boat.name %>
-    <%= boat.capacity %>
-    <%= boat.category %>
-    <%= boat.price %>
-    <%= boat.user %>
-  </li>
+  <ul>
+    <li>
+      <%= boat.name %>
+      <%= boat.capacity %>
+      <%= boat.category %>
+      <%= boat.price %>
+      <%= boat.user_id %>
+    </li>
+  </ul>
 <% end %>
