@@ -20,7 +20,7 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @boat = Boat.find(param[:id])
+    @boat = Boat.find(params[:id])
   end
 
   private
