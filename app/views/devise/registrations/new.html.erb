@@ -4,12 +4,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :first_name,
-                required: true %>
+
     <%= f.input :last_name,
-                required: true %>
+              required: true,
+              label: "Last Name" %>
+
+    <%= f.input :first_name,
+                required: true,
+                label: "First Name" %>
+
     <%= f.input :phone_number,
-                required: true %>
+              required: true,
+              label: "Phone number" %>
+
     <%= f.input :email,
                 required: true,
                 autofocus: true,
