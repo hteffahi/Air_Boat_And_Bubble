@@ -1,20 +1,22 @@
 <div class='container'>
-  <div class='row row-cols-5 gap-3 justify-content-center'>
+  <div class='row'>
     <% @boats.each do |boat| %>
-      <%= link_to boat, class: 'w-25' do %>
+      <%= link_to boat, class: 'w-25 col-3 mb-5' do %>
         <div class="col card">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column p-0">
             <img src="https://s2.qwant.com/thumbr/0x380/4/d/d48f20a46a4497747c29551c4b82ad98d3e32e6583072de5d795f0a0e3eb83/U77Profile_StbdQuarter.jpg?u=http%3A%2F%2Fww1.prweb.com%2Fprfiles%2F2014%2F06%2F19%2F11958824%2FU77Profile_StbdQuarter.jpg&q=0&b=1&p=0&a=0" class="card-img-top" alt="">
-            <ul>
-              <li class="card-text">
-                <%= boat.name %>
-                <%= boat.capacity %>
-                <%= boat.category %>
-                <%= boat.price %>
-                <%= boat.user_id %>
-              </li>
+            <div class="card-text ps-3">
+              <div class='d-flex gap-5 mt-1'>
+                <p><%= boat.name %></p>
+                <p><%= boat.category %></p>
+              </div>
+              <p id='avatar' style="position: absolute;right: 16px;top: 205px;"><%= boat.user_id %></p>
+              <div class='d-flex justify-content-between pe-3 mt-4'>
+                <p><%= boat.capacity %> <i class="fa-solid fa-people-group" style="color: #008000;"></i></p>
+                <p><%= boat.price %> <i class="fa-solid fa-euro-sign" style="color: #008000;"></i></p>
+              </div>
             </div>
-          </ul>
+          </div>
         </div>
       <% end %>
     <% end %>
