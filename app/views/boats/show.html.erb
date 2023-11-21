@@ -1,0 +1,42 @@
+<div class="card-trip">
+  <h1>Boat</h1>
+
+  <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://media.npr.org/assets/img/2012/03/29/titanic_custom-fc6a03aedd8e562d780ecf9b9a8a947d4dcbf163-s1100-c50.jpg" class="d-block w-100" alt="Titanic">
+    </div>
+    <div class="carousel-item">
+      <img src="https://media.npr.org/assets/img/2012/03/29/titanic_custom-fc6a03aedd8e562d780ecf9b9a8a947d4dcbf163-s1100-c50.jpg" class="d-block w-100" alt="Titanic">
+    </div>
+    <div class="carousel-item">
+      <img src="https://media.npr.org/assets/img/2012/03/29/titanic_custom-fc6a03aedd8e562d780ecf9b9a8a947d4dcbf163-s1100-c50.jpg" class="d-block w-100" alt="Titanic">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @boat.name %></h2>
+      <h2><%= @boat.category %></h2>
+      <h2><%= @boat.capacity %></h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£ <%= @boat.price %> </h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
+<p class="btn btn-outline-primary">
+  <%= link_to "HOME", root_path %>
+</p>
+<p class="btn btn-outline-primary">
+  <%= link_to "Book", new_boat_booking_path(@boat) %>
+</p>
