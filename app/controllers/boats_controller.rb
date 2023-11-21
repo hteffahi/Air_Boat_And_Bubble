@@ -12,4 +12,10 @@ class BoatsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  private
+
+  def boat_params
+    params.require(:boat).permit(:name, :category, :price, :capacity)
+  end
 end
