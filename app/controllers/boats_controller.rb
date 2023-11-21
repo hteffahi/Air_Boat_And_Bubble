@@ -1,5 +1,9 @@
 class BoatsController < ApplicationController
 
+  def home
+    @boats = Boat.all
+  end
+
   def new
     @boat = Boat.new
   end
