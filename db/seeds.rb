@@ -7,13 +7,42 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning database..."
-Boat.destroy_all
 User.destroy_all
+Boat.destroy_all
 
-User.create(email: "bobvance@email.com", password: "refregirator", phone_number: "+33620304050", last_name: "Vance", first_name: "Bob")
+User.create(email: "bobvance@email.com", password: "123456", phone_number: "+33620304050", last_name: "Vance", first_name: "Bob")
+User.create(email: "tobbymachin@email.com", password: "abcdef", phone_number: "+33644556677", last_name: "Machin", first_name: "Tobby")
 
-Boat.create(name: "titanic", capacity: 4000, category: "liner", price: 20_000, user_id: 1)
-Boat.create(name: "tulipe", capacity: 3, category: "floating boat", price: 10, user_id: 1)
+boat = Boat.new(name: "titanic", capacity: 4000, category: "liner", price: 20_000)
+boat.user = User.all.sample
+boat.save
 
+Boat.create(name: "Tulipe", capacity: 15, category: "Barge", price: 1500)
+boat.user = User.all.sample
+boat.save
+Boat.create(name: "Unsinkable II", capacity: 20, category: "Barge", price: 300)
+boat.user = User.all.sample
+boat.save
+Boat.create(name: "Atlantis", capacity: 3, category: "Fishing Boat", price: 499)
+boat.user = User.all.sample
+boat.save
+Boat.create(name: "Serendipity", capacity: 12, category: "Yatch", price: 2350)
+boat.user = User.all.sample
+boat.save
+Boat.create(name: "Aurora", capacity: 15, category: "Yatch", price: 8000)
+boat.user = User.all.sample
+boat.save
+Boat.create(name: "Dream Weaver", capacity: 8, category: "Liner", price: 150)
+boat.user = User.all.sample
+boat.save
+Boat.create(name: "Sail La Vie", capacity: 5, category: "Floating boat", price: 50)
+boat.user = User.all.sample
+boat.save
+Boat.create(name: "Little King", capacity: 3, category: "Fishing boat", price: 10)
+boat.user = User.all.sample
+boat.save
+Boat.create(name: "Yatch1387", capacity: 3, category: "Yatch", price: 3)
+boat.user = User.all.sample
+boat.save
 
 puts "finished"
