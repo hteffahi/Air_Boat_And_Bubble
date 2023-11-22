@@ -1,5 +1,6 @@
-  <ul>
-    <% @boats.each do |boat| %>
+<h3>Vos bateaux :</h3>
+<ul>
+  <% @boats.each do |boat| %>
     <li>
       <%= boat.name %>
       <%= link_to "Delete",
@@ -7,6 +8,15 @@
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
       %>
     </li>
-    <% end %>
+  <% end %>
+</ul>
+<%= link_to 'Ajouter un nouveau bateau', new_boat_path %> <br><br><br>
 
-  </ul>
+<h3> Vos reservations en attente</h3>
+<% @bookings.each do |booking| %>
+  <p>Demandeur : <%= booking.user_id %></p>
+  <p>Bateaux : <%= booking.boat_id %></p>
+  <div>
+    <p>Du : <%= booking.start_date %> au : <%= booking.end_date %></p>
+  </div>
+  <% end %>

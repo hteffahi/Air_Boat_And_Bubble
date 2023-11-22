@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
   resources :boat, only: [:destroy]
   get "/dashboard", to: "pages#show"
+
+  # ressources :booking, only: [:edit, :update]
 end
