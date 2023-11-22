@@ -17,13 +17,10 @@ class BookingsController < ApplicationController
     @booking.user = @user
     if @booking.save
       redirect_to root_path
-
     else
       render :new, status: :unprocessable_entity
     end
   end
-
-
 
   def destroy
     @booking = Booking.new(booking_params)

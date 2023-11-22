@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :boats
+  has_many :requested_bookings, through: :boats, source: :bookings
 
   validates :first_name, presence: true
   validates :last_name, presence: true
