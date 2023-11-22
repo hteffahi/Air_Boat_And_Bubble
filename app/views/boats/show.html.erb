@@ -1,6 +1,6 @@
 <div class="card-trip">
   <h1>Boat</h1>
-    <h2><%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %></h2>
+   <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
 
 </div>
   <div class="card-trip-infos">
@@ -10,7 +10,6 @@
       <h2><%= @boat.capacity %></h2>
       <p>Short description here!</p>
       <h2 class="card-trip-pricing">£ <%= @boat.price %> </h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
   </div>
 </div>

@@ -14,8 +14,6 @@ class BoatsController < ApplicationController
     redirect_to dashboard_path, status: :see_other
   end
 
-  end
-
   def create
     @user = current_user
     @boat = Boat.new(boat_params)
@@ -46,3 +44,5 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:name, :category, :price, :capacity, :photo)
   end
+  
+end
