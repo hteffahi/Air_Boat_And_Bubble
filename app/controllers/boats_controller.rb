@@ -11,7 +11,7 @@ class BoatsController < ApplicationController
   def destroy
     @boat = Boat.find(params[:id])
     @boat.destroy
-    redirect_to boat_path(@boat.boats), status: :see_other
+    redirect_to dashboard_path, status: :see_other
   end
 
   end
