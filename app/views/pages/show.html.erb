@@ -1,0 +1,12 @@
+  <ul>
+    <% @boats.each do |boat| %>
+    <li>
+      <%= boat.name %>
+      <%= link_to "Delete",
+        boat_path(boat),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    </li>
+    <% end %>
+
+  </ul>
