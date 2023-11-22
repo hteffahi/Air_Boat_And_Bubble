@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
   def show
     @boats = current_user.boats
-    @bookings = User.find(9).requested_bookings
+    @bookings = current_user.requested_bookings
   end
 end
