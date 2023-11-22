@@ -8,6 +8,14 @@ class BoatsController < ApplicationController
     @boat = Boat.new
   end
 
+  def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+    redirect_to boat_path(@boat.boats), status: :see_other
+  end
+
+  end
+
   def create
     @user = current_user
     @boat = Boat.new(boat_params)
@@ -28,4 +36,3 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:name, :category, :price, :capacity)
   end
-end
