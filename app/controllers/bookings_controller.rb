@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @boat = Boat.find(params[:boat_id])
     @booking = Booking.new
@@ -20,6 +19,11 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    booking = Booking.find(params[:id])
+    booking.update(status: true)
   end
 
   def destroy
