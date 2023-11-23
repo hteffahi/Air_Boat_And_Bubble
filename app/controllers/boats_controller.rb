@@ -2,6 +2,12 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
+    @markers = @boats.geocoded.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+    end
   end
 
   def new
@@ -37,6 +43,11 @@ class BoatsController < ApplicationController
 
   def show
     @boat = Boat.find(params[:id])
+    @markers = [
+      {
+        lat: @boat.latitude,
+        lng: @boat.longitude
+      }]
   end
 
   private
@@ -44,5 +55,5 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:name, :category, :price, :capacity, :photo)
   end
-  
+
 end
