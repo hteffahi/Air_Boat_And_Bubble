@@ -2,8 +2,16 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
+
+    @markers = @boats.geocoded.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+
     if params[:query].present?
       @boats = @boats.where(name: params[:query])
+
     end
   end
 
@@ -40,6 +48,11 @@ class BoatsController < ApplicationController
 
   def show
     @boat = Boat.find(params[:id])
+    @markers = [
+      {
+        lat: @boat.latitude,
+        lng: @boat.longitude
+      }]
   end
 
   private
