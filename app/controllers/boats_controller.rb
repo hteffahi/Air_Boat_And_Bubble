@@ -11,8 +11,8 @@ class BoatsController < ApplicationController
 
     if params[:query].present?
       @boats = @boats.where(name: params[:query])
-
     end
+      end
   end
 
   def new
@@ -58,7 +58,7 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :category, :price, :capacity, :photo)
+    params.require(:boat).permit(:name, :category, :price, :capacity, :photo, :address)
   end
 
 end
