@@ -16,7 +16,7 @@
 <div>
   <h3>Pending booking</h3>
   <% @bookings.each do |booking| %>
-    <div class='card'>
+    <div class='card d-flex gap-5'>
       <p>Customer : <%= booking.user_id %></p>
       <p>Boat : <%= booking.boat_id %></p>
       <div>
