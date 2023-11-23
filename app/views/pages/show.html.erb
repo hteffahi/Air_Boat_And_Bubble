@@ -1,3 +1,4 @@
+<div class="container">
 <div>
   <h3>Vos bateaux :</h3>
   <ul>
@@ -25,4 +26,16 @@
     <p>Status: <%= booking.status %></p>
     <%= link_to 'Accepter', boat_booking_url(booking.boat.id, booking.id), data: { "turbo-method": :patch } %>
   <% end %>
+</div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+  </div>
 </div>
