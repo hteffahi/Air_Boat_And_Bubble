@@ -1,7 +1,6 @@
 <div class="card-trip">
   <h1>Boat</h1>
    <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
-
 </div>
   <div class="card-trip-infos">
     <div>
@@ -23,3 +22,22 @@
 <p class="btn btn-outline-primary">
   <%= link_to "Edit", edit_boat_path(@boat) %>
 </p>
+
+
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+  </div>
+</div>
