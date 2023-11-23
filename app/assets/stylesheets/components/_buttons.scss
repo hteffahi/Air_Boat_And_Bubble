@@ -1,0 +1,37 @@
+.btn-decline {
+  background-color: #4086B7;
+  color: white;
+  text-decoration: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #2790cf;
+  }
+}
+
+.btn-accept {
+  background-color: #62ABE0;
+  color: white;
+  text-decoration: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #5ea2c6;
+  }
+}
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #670BFF;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #4D04C4;
+  color: white;
+}

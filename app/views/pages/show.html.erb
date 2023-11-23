@@ -1,39 +1,68 @@
 <div class="container">
   <div>
     <h3>Boats :</h3>
-    <ul>
-      <% @boats.each do |boat| %>
-        <li>
-          <%= boat.name %>
-          <%= link_to "Delete",
-            boat_path(boat),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-          %>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to 'Add a new boat', new_boat_path %> <br><br><br>
+      <div class="d-flex row">
+        <% @boats.each do |boat| %>
+          <%= link_to boat_path(boat.id), class: 'w-100 text-decoration-none' do %>
+            <div class="card col-4 d-flex flex-row">
+              <%= boat.name %>
+              <p> <%= boat.price %> € </p>
+              <div class="d-flex flex-column align-items-center justify-content-center">
+                <%= link_to "Edit", edit_boat_path(boat.id), class: 'text-decoration-none' %>
+                <%= link_to "Delete", boat_path(boat), class: 'text-decoration-none',
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <%= link_to 'Add a new boat', new_boat_path, class: "btn btn-primary" %> <br><br><br>
   </div>
   <div>
     <h3>Pending booking</h3>
-    <div class='d-flex gap-5'>
+    <div class='d-flex gap-5 pb-5'>
       <% @bookings.each do |booking| %>
-          <div class='card', style='width: 18rem;'>
+        <% if booking.status == nil %>
+          <% status = 'En attente' %>
+        <% elsif booking.status == false %>
+          <% status = 'Declined' %>
+        <% else %>
+          <% status = 'Accepted' %>
+        <% end %>
+        <div class='card', style='width: 18rem;'>
+          <div class="card-body d-flex flex-column mx-auto">
             <p>Applicant : <%= booking.user.first_name %></p>
-            <p>Boat : <%= booking.boat.name %></p>
+            <p>Boat : <%= link_to booking.boat.name,  boat_path(booking.boat.id), class: 'text-decoration-none' %></p>
             <div>
               <p>From : <%= booking.start_date %></p>
               <p>To : <%= booking.end_date %></p>
             </div>
-            <p>Status: <%= booking.status %> <%= 'En attente' if booking.status = nil %></p>
-            <%= link_to 'Accept', boat_booking_url(booking.boat.id, booking.id), data: { turbo_confirm: 'Are you sure you want to accept this booking?', "turbo-method": :patch } %>
-            <%= link_to 'Decline', boat_update_false_booking_url(booking.boat.id, booking.id), data: { turbo_confirm: 'Are you sure you want to decline this booking?', "turbo-method": :patch } %>
+            <p>Status: <%= status %></p>
+            <div class='mx-auto'>
+              <% if booking.status == nil %>
+                <%= link_to 'Accept', boat_booking_url(booking.boat.id, booking.id),
+                  class: "btn-accept",
+                  data: { turbo_confirm: 'Are you sure you want to accept this booking?', "turbo-method": :patch } %>
+                <%= link_to 'Decline', boat_update_false_booking_url(booking.boat.id, booking.id),
+                  class: "btn-decline",
+                  data: { turbo_confirm: 'Are you sure you want to decline this booking?', "turbo-method": :patch} %>
+              <% elsif booking.status == false %>
+                <%= link_to 'Accept', boat_booking_url(booking.boat.id, booking.id),
+                  class: "btn-accept",
+                  data: { turbo_confirm: 'Are you sure you want to accept this booking?', "turbo-method": :patch } %>
+              <% else %>
+                <%= link_to 'Decline', boat_update_false_booking_url(booking.boat.id, booking.id),
+                  class: "btn-decline",
+                  data: { turbo_confirm: 'Are you sure you want to decline this booking?', "turbo-method": :patch} %>
+              <% end %>
+            </div>
           </div>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
-<div class="footer">
+<%# <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -43,4 +72,20 @@
   </div>
   <div class="footer-copyright">
   </div>
-</div>
+</div> %>
+          <%# <div data-controller="accepte-or-decline" data-accepte-or-decline-target="disable">
+            <%= link_to 'Accept', boat_booking_url(booking.boat.id, booking.id), class: "#{booking.status.nil? == true ? 'disabled' : ''} btn-accept",
+              data: { turbo_confirm: 'Are you sure you want to accept this booking?',
+                "turbo-method": :patch,
+                target: 'accepte-or-decline.disable',
+                action: "click->accepte-or-decline#disabled"
+              }
+            %>
+            <%# link_to 'Decline', boat_update_false_booking_url(booking.boat.id, booking.id), class: "#{booking.status.nil? == true ? '' : 'disabled'} btn-decline",
+              data: { turbo_confirm: 'Are you sure you want to decline this booking?',
+                "turbo-method": :patch,
+                controller: 'accept-or-decline',
+                action: "click->accepte-or-decline#disabled"
+              }
+            %>
+          <%# </div> %>
