@@ -1,31 +1,46 @@
-<div>
-  <h3>Boats :</h3>
-  <ul>
-    <% @boats.each do |boat| %>
-      <li>
-        <%= boat.name %>
-        <%= link_to "Delete",
-          boat_path(boat),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-        %>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to 'Add a new boat', new_boat_path %> <br><br><br>
-</div>
-<div>
-  <h3>Pending booking</h3>
-  <% @bookings.each do |booking| %>
-    <div class='card d-flex gap-5'>
-      <p>Customer : <%= booking.user_id %></p>
-      <p>Boat : <%= booking.boat_id %></p>
-      <div>
-        <p>From : <%= booking.start_date %></p>
-        <p>To : <%= booking.end_date %></p>
-      </div>
-      <p>Status: <%= booking.status %></p>
-      <%= link_to 'Accept', boat_booking_url(booking.boat.id, booking.id), data: { "turbo-method": :patch } %>
-      <%= link_to 'Decline', boat_booking_url(booking.boat.id, booking.id), data: { "turbo-method": :patch } %>
+<div class="container">
+  <div>
+    <h3>Boats :</h3>
+    <ul>
+      <% @boats.each do |boat| %>
+        <li>
+          <%= boat.name %>
+          <%= link_to "Delete",
+            boat_path(boat),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to 'Add a new boat', new_boat_path %> <br><br><br>
+  </div>
+  <div>
+    <h3>Pending booking</h3>
+    <div class='d-flex gap-5'>
+      <% @bookings.each do |booking| %>
+          <div class='card', style='width: 18rem;'>
+            <p>Applicant : <%= booking.user.first_name %></p>
+            <p>Boat : <%= booking.boat.name %></p>
+            <div>
+              <p>From : <%= booking.start_date %></p>
+              <p>To : <%= booking.end_date %></p>
+            </div>
+            <p>Status: <%= booking.status %> <%= 'En attente' if booking.status = nil %></p>
+            <%= link_to 'Accept', boat_booking_url(booking.boat.id, booking.id), data: { turbo_confirm: 'Are you sure you want to accept this booking?', "turbo-method": :patch } %>
+            <%= link_to 'Decline', boat_update_false_booking_url(booking.boat.id, booking.id), data: { turbo_confirm: 'Are you sure you want to decline this booking?', "turbo-method": :patch } %>
+          </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+  </div>
 </div>
