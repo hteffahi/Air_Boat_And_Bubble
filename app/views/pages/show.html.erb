@@ -1,5 +1,5 @@
 <div>
-  <h3>Vos bateaux :</h3>
+  <h3>Boats :</h3>
   <ul>
     <% @boats.each do |boat| %>
       <li>
@@ -11,18 +11,21 @@
       </li>
     <% end %>
   </ul>
-  <%= link_to 'Ajouter un nouveau bateau', new_boat_path %> <br><br><br>
+  <%= link_to 'Add a new boat', new_boat_path %> <br><br><br>
 </div>
 <div>
-  <h3> Vos reservations en attente</h3>
+  <h3>Pending booking</h3>
   <% @bookings.each do |booking| %>
-    <p>Demandeur : <%= booking.user_id %></p>
-    <p>Bateaux : <%= booking.boat_id %></p>
-    <div>
-      <p>Du : <%= booking.start_date %></p>
-      <p>Au : <%= booking.end_date %></p>
+    <div class='card'>
+      <p>Customer : <%= booking.user_id %></p>
+      <p>Boat : <%= booking.boat_id %></p>
+      <div>
+        <p>From : <%= booking.start_date %></p>
+        <p>To : <%= booking.end_date %></p>
+      </div>
+      <p>Status: <%= booking.status %></p>
+      <%= link_to 'Accept', boat_booking_url(booking.boat.id, booking.id), data: { "turbo-method": :patch } %>
+      <%= link_to 'Decline', boat_booking_url(booking.boat.id, booking.id), data: { "turbo-method": :patch } %>
     </div>
-    <p>Status: <%= booking.status %></p>
-    <%= link_to 'Accepter', boat_booking_url(booking.boat.id, booking.id), data: { "turbo-method": :patch } %>
   <% end %>
 </div>
