@@ -18,7 +18,7 @@
   <div class='d-flex gap-5'>
     <% @bookings.each do |booking| %>
         <div class='card', style='width: 18rem;'>
-          <p>Customer : <%= booking.user.first_name %></p>
+          <p>Applicant : <%= booking.user.first_name %></p>
           <p>Boat : <%= booking.boat.name %></p>
           <div>
             <p>From : <%= booking.start_date %></p>
