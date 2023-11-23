@@ -38,7 +38,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :cloudinary
 
   config.action_mailer.default_url_options = { host: 'https://airboatandbubble-hteffahi-446cbb0e3b95.herokuapp.com/', port: 3000 }
   # Mount Action Cable outside main process or domain.
