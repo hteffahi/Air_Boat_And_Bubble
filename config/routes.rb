@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :boats do
     resources :bookings, only: %i[new create edit update show]
-
+    patch '/bookings/:id/update_false', to: 'bookings#update_false', as: 'update_false_booking'
   end
   resources :boat, only: [:destroy]
   get "/dashboard", to: "pages#show"
