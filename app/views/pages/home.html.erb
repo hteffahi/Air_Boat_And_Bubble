@@ -1,6 +1,8 @@
-<h1>Welcome to the Air Boat & Bubble</h1>
-<h3>Voici nos meilleurs bateaux :</h3>
 <div class='container'>
+
+<h1 class="title">  Welcome to the Air Boat & Bubble</h1>
+<h3 class="title">Voici nos meilleurs bateaux :</h3>
+
   <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
     <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
@@ -13,6 +15,7 @@
     <% end %>
   </div>
 </div>
+
   <div class='row'>
     <% @boats.sample(4).each do |boat| %>
       <%= link_to boat, class: 'w-25 col-3 mb-5' do %>
@@ -45,6 +48,5 @@
     <a href="#"><i class="fab fa-linkedin"></i></a>
   </div>
   <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart" style="color: #008000;"></i>
   </div>
 </div>
