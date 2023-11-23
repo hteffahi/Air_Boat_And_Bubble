@@ -1,0 +1,6 @@
+<%# Ne sert actuellement à rien ='(
+%>
+
+<%= simple_form_for booking, url: boat_booking_url(booking.boat.id, booking.id), data: { "turbo-method": :delete }, remote: true do |f| %>
+  <%= f.button :submit, 'Confirmer la réservation', class: 'btn btn-primary', data: { confirm: 'Êtes-vous sûr de vouloir confirmer cette réservation?' } %>
+<% end %>
