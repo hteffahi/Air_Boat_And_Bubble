@@ -11,6 +11,7 @@
 
 
 <div class='container'>
+<h2>All Boats (<%= @boats.count %>)</h2>
   <div class='row'>
     <% @boats.each do |boat| %>
       <%= link_to boat, class: 'w-25 col-3 mb-5' do %>
