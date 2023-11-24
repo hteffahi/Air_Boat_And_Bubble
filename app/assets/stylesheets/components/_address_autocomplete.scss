@@ -1,7 +1,55 @@
-.mapboxgl-ctrl-geocoder {
-  max-width: none;
+// Custom styles for address autocomplete
+[data-controller="address-autocomplete"] {
+  position: relative; // Ensures that the suggestions are positioned relative to the input
+
+  // Styles for the container that appears with address suggestions
+  .autocomplete-container {
+    position: absolute;
+    z-index: 1000; // Makes sure it's above other content
+    width: 100%; // Match the width of the input
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 300px;
+    overflow-y: auto; // Allows scrolling for many suggestions
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    // Styles for individual suggestion items
+    .autocomplete-suggestion {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f8f8f8;
+      }
+    }
+  }
+}
+
+// Style for hidden input (you may want to leave it hidden or give it some other styles)
+.d-none {
+  display: none;
+}
+
+// Styles for the simple_form inputs
+.simple_form input[type="text"],
+.simple_form input[type="file"] {
   width: 100%;
-  border: 1px solid lightgrey;
-  box-shadow: none;
-  background-color: transparent;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px; // Adds space between the inputs
+}
+
+// Style for the submit button
+.simple_form button[type="submit"] {
+  background-color: #0275d8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(#0275d8, 10%);
+  }
 }
