@@ -1,18 +1,14 @@
 <%= simple_form_for([@boat, @booking]) do |f| %>
-  <div class="container">
-  <h1>Welcome</h1>
-  <%= f.input :start_date,
-  as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-  <%= f.input :end_date,
-  as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-  <%= f.submit %>
+  <div class="container mt-3 w-25">
+    <h1 style='color: white'>Welcome</h1>
+    <%= f.input :start_date,
+    as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :end_date,
+    as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+    <%= f.submit %>
 <% end %>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
