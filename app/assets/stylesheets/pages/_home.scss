@@ -27,6 +27,7 @@ a {
     .btn-primary {
       background-color: #0275d8;
       border: none;
+      border-radius: 15px;
     }
   }
 
@@ -40,11 +41,15 @@ a {
     margin-bottom: 20px;
     text-align: center;
 
+
     .card {
 
+      border: none;
+
       .card-image img {
-        width: 100%; // Ensures image takes the full width of the card
-        height: auto; // Keeps the image aspect ratio
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
       }
 
       .boat-info {
@@ -53,7 +58,7 @@ a {
         .boat-name-category p {
           font-weight: bold;
           color: #333;
-          text-decoration: none; // Removes underlining if it's inherited
+          text-decoration: none;
         }
 
         .boat-stats p {
@@ -64,16 +69,24 @@ a {
   }
 }
 
+.footer {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
 
-.footer .fa-heart {
-  color: #D23333;
-}
-body {
-  position: relative;
-  min-height: calc(100vh - 0px);
+  .footer-links {
+    a {
+      color: #0275d8;
+      margin: 0 10px;
+      text-decoration: none; // Removes underlining from links
 
-}
-.title{
-  display: flex;
-  justify-content: center;
+      &:hover {
+        text-decoration: underline;
+      }
+
+      .fab {
+        font-size: 1.5em; // Makes the icons larger
+      }
+    }
+  }
 }
