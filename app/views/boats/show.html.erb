@@ -3,8 +3,8 @@
   <div class="card-product d-flex mb-3 gap-3" id='my-boat-car'>
     <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-product-infos flex-column d-flex">
-      <div class='flex-grow-1'>
-        <h2><%= @boat.name %> de <%= @boat.user.first_name %> <%= @boat.user.last_name %></h2>
+      <div class='flex-grow-1 pt-3'>
+        <h2><%= @boat.user.first_name %> <%= @boat.user.last_name %>'s <%= @boat.name %></h2>
         <h3><%= @boat.category %></h3>
         <p><%= @boat.capacity %> seats</p>
         <p><%= @boat.address %></p>
