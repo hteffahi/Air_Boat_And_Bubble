@@ -64,24 +64,16 @@ a {
   }
 }
 
-.footer {
-  text-align: center;
-  border-top: 1px solid #ddd;
-  padding-top: 20px;
 
-  .footer-links {
-    a {
-      color: #0275d8;
-      margin: 0 10px;
-      text-decoration: none; // Removes underlining from links
+.footer .fa-heart {
+  color: #D23333;
+}
+body {
+  position: relative;
+  min-height: calc(100vh - 0px);
 
-      &:hover {
-        text-decoration: underline;
-      }
-
-      .fab {
-        font-size: 1.5em; // Makes the icons larger
-      }
-    }
-  }
+}
+.title{
+  display: flex;
+  justify-content: center;
 }
