@@ -3,7 +3,7 @@
     <h3 style='color: white;'>My boats :</h3>
     <div class="d-flex flex-wrap gap-3 mb-3 row justify-content-center">
       <% @boats.each do |boat| %>
-        <div class="card d-flex flex-row col-3 my-3" id='my-boats-card'>
+        <div class="card d-flex flex-row col-3 my-3" id='my-boat-card'>
           <%= link_to boat_path(boat.id), class: 'w-100 text-decoration-none' do %>
             <%= boat.name %>
             <p> <%= boat.price %> € </p>
@@ -16,7 +16,9 @@
         <% end %>
       <% end %>
     </div>
-    <%= link_to 'Add a new boat', new_boat_path, class: "btn-accept" %> <br><br><br>
+    <div class="d-flex justify-content-center">
+      <%= link_to 'Add a new boat', new_boat_path, class: "btn-accept" %> <br><br><br>
+    </div>
   </div>
   <div>
     <h3 style='color: white;'>Pending booking</h3>

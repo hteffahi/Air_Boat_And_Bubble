@@ -1,43 +1,39 @@
-<div class="card-trip">
-  <h1>Boat</h1>
-   <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
-</div>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @boat.name %></h2>
-      <h2><%= @boat.category %></h2>
-      <h2><%= @boat.capacity %></h2>
-      <p>Short description here!</p>
-      <h2 class="card-trip-pricing">£ <%= @boat.price %> </h2>
+<div class='container'>
+    <h1>Boat</h1>
+  <div class="card-product d-flex mb-3 gap-3" id='my-boat-car'>
+    <%= cl_image_tag @boat.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="card-product-infos flex-column d-flex">
+      <div class='flex-grow-1'>
+        <h2><%= @boat.name %></h2>
+        <h3><%= @boat.category %></h3>
+        <p><%= @boat.capacity %> seats</p>
+        <p><%= @boat.address %></p>
+        <h3 class="card-trip-pricing">£ <%= @boat.price %> </h3>
+      </div>
+    <div class='d-flex gap-3 mb-3'>
+        <%= link_to "Book", new_boat_booking_path(@boat), class: 'btn-accept' %>
+        <%= link_to "Back", boats_path, class: 'btn-decline' %>
+    </div>
     </div>
   </div>
-</div>
-
-<p class="btn btn-outline-primary">
-  <%= link_to "HOME", root_path %>
-</p>
-<p class="btn btn-outline-primary">
-  <%= link_to "Book", new_boat_booking_path(@boat) %>
-</p>
-<p class="btn btn-outline-primary">
-  <%= link_to "Edit", edit_boat_path(@boat) %>
-</p>
 
 
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+    </div>
   </div>
 </div>
