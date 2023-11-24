@@ -15,9 +15,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class='blue'>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
+    <div >
+      <%= yield %>
+    </div>
   </body>
 </html>

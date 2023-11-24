@@ -38,9 +38,14 @@
   width: 40px;
 }
 
-card-product {
+.card-product {
   background-color: white;
   border-radius: 15px;
+  img {
+    border-radius: 15px;
+  }
+}
+
 .card_boat{
   border: none;
   height: 450px;
