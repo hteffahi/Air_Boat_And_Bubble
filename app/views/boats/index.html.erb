@@ -1,3 +1,6 @@
+
+
+<div class='container'>
    <div class="row justify-content-center">
   <div class="col-sm-12 my-3">
     <%= form_with url: boats_path, method: :get, class: "d-flex p-5" do %>
@@ -8,24 +11,20 @@
         %>
       <%= submit_tag "Search", address: "", class: "btn btn-primary" %>
     <% end %>
-
-
-<div class='container'>
-<h2>All Boats </h2>
+<h2 style='color: white'>All Boats </h2>
   <div class='row'>
     <% @boats.each do |boat| %>
       <%= link_to boat, class: 'w-25 col-3 mb-5' do %>
         <div class="col card_boat">
           <div class="card-body d-flex flex-column p-0">
             <div class="card-img-top">
-            <%= cl_image_tag boat.photo.key, height: 300, width: 305, crop: :fill %>
+            <%= cl_image_tag boat.photo.key, height: 300, width: 280, crop: :fill %>
             </div>
             <div class="card-text ps-3">
               <div class='d-flex gap-5 mt-1'>
                 <p><%= boat.name %></p>
                 <p><%= boat.category %></p>
               </div>
-              <p id='avatar' style="position: absolute;right: 16px;top: 205px;"><%= boat.user_id %></p>
               <div class='d-flex justify-content-between pe-3 mt-4'>
                 <p><%= boat.capacity %> <i class="fa-solid fa-people-group" style="color: #008000;"></i></p>
                 <p><%= boat.price %> <i class="fa-solid fa-euro-sign" style="color: #008000;"></i></p>
